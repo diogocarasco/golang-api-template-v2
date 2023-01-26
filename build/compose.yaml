@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  db:
+    image: postgres
+    container_name: go_api_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=carsuser
+      - POSTGRES_PASSWORD=carspwd
+      - POSTGRES_DB=cars
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
